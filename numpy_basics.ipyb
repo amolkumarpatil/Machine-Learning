@@ -1,0 +1,334 @@
+{
+ "metadata": {
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.3-final"
+  },
+  "orig_nbformat": 2,
+  "kernelspec": {
+   "name": "python3",
+   "display_name": "Python 3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2,
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "tags": []
+   },
+   "source": [
+    "# NumPy\n",
+    "NumPy (or Numpy) is a Linear Algebra Library for Python. \n",
+    "Understanding numpy is important for machine learning/data science and the reason it is so important is that almost all of the libraries in the PyData Ecosystem rely on NumPy as one of their main building blocks.\n",
+    "# \n",
+    "Numpy is also incredibly fast, as it has bindings to C libraries. For more info on why you would want to use Arrays instead of lists, check out this great [StackOverflow post](http://stackoverflow.com/questions/993984/why-numpy-instead-of-python-lists).\n",
+    "# \n",
+    "In below sections, I will demonstrate few basic and important numpy functions"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Numpy Arrays\n",
+    "Install Numpy using 'pip install numpy'"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# import numpy\n",
+    "import numpy as np "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "output_type": "stream",
+     "name": "stdout",
+     "text": "[1 2 3 4]\nShape of the array:  (4,)\n"
+    }
+   ],
+   "source": [
+    "my_lst = [1,2,3,4]\n",
+    "\n",
+    "arr = np.array(my_lst)\n",
+    "print(arr)\n",
+    "print(\"Shape of the array: \",arr.shape)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "output_type": "stream",
+     "name": "stdout",
+     "text": "[[1 2 3 4]\n [5 6 7 8]\n [3 4 5 6]]\nShape of the array:  (3, 4)\n"
+    }
+   ],
+   "source": [
+    "my_lst1 = [1,2,3,4]\n",
+    "my_lst2 = [5,6,7,8]\n",
+    "my_lst3 = [3,4,5,6]\n",
+    "\n",
+    "multi_arr = np.array([my_lst1,my_lst2,my_lst3])\n",
+    "print(multi_arr)\n",
+    "print(\"Shape of the array: \",multi_arr.shape)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "output_type": "stream",
+     "name": "stdout",
+     "text": "reshape1: [[1 2 3]\n [4 5 6]\n [7 8 3]\n [4 5 6]]\nreshape2: [[1 2 3 4 5 6 7 8 3 4 5 6]]\n"
+    }
+   ],
+   "source": [
+    "#  reshaping the array\n",
+    "print(\"reshape1:\",multi_arr.reshape(4,3))\n",
+    "print(\"reshape2:\",multi_arr.reshape(1,12))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Indexing\n",
+    "It is process accesing elements of list or array using its index value"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "arr = np.array([1,2,3,4,5,6])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "output_type": "stream",
+     "name": "stdout",
+     "text": "index2 3\nindex5 6\n"
+    }
+   ],
+   "source": [
+    "# accesing 3rd element in the array\n",
+    "# remember that in python indexing starts with 0\n",
+    "print(\"index2\",arr[2])\n",
+    "print(\"index5\",arr[5])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [
+    {
+     "output_type": "execute_result",
+     "data": {
+      "text/plain": "array([[2, 3],\n       [6, 7],\n       [4, 5]])"
+     },
+     "metadata": {},
+     "execution_count": 9
+    }
+   ],
+   "source": [
+    "# 2-D indexing\n",
+    "# array[start_row_index:end_row_inedx,start_column_index:end_column_index]\n",
+    "multi_arr[0:3,1:3]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Numpy Inbuilt Functions"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "output_type": "execute_result",
+     "data": {
+      "text/plain": "array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16,\n       17, 18, 19])"
+     },
+     "metadata": {},
+     "execution_count": 10
+    }
+   ],
+   "source": [
+    "# np.aranage returns evenly spaced values within a given interval\n",
+    "# syntax arange([start,] stop[, step,], dtype)\n",
+    "arr = np.arange(0,20,dtype=int)\n",
+    "arr"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [
+    {
+     "output_type": "execute_result",
+     "data": {
+      "text/plain": "array([[ 0,  1,  2,  3,  4],\n       [ 5,  6,  7,  8,  9],\n       [10, 11, 12, 13, 14],\n       [15, 16, 17, 18, 19]])"
+     },
+     "metadata": {},
+     "execution_count": 11
+    }
+   ],
+   "source": [
+    "# reshaping above array into 2-D array\n",
+    "arr.reshape(4,5)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "output_type": "stream",
+     "name": "stdout",
+     "text": "original array [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19]\nmanipulated array [  0   1   2 500 500 500 500 500 500 500 500 500 500 500 500 500 500 500\n 500 500]\n"
+    }
+   ],
+   "source": [
+    "# copy an array to new array and manipulate it\n",
+    "arr1 = arr.copy()\n",
+    "arr1[3:] = 500\n",
+    "print(\"original array\", arr)\n",
+    "print(\"manipulated array\",arr1)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "metadata": {
+    "tags": []
+   },
+   "outputs": [
+    {
+     "output_type": "stream",
+     "name": "stdout",
+     "text": "addition [  0   2   4 503 504 505 506 507 508 509 510 511 512 513 514 515 516 517\n 518 519]\nsubtaction [  0   0   0 497 496 495 494 493 492 491 490 489 488 487 486 485 484 483\n 482 481]\nmultiplication [   0    1    4 1500 2000 2500 3000 3500 4000 4500 5000 5500 6000 6500\n 7000 7500 8000 8500 9000 9500]\ndivision [         nan   1.           1.         166.66666667 125.\n 100.          83.33333333  71.42857143  62.5         55.55555556\n  50.          45.45454545  41.66666667  38.46153846  35.71428571\n  33.33333333  31.25        29.41176471  27.77777778  26.31578947]\nexponential [1.00000000e+00 2.71828183e+00 7.38905610e+00 2.00855369e+01\n 5.45981500e+01 1.48413159e+02 4.03428793e+02 1.09663316e+03\n 2.98095799e+03 8.10308393e+03 2.20264658e+04 5.98741417e+04\n 1.62754791e+05 4.42413392e+05 1.20260428e+06 3.26901737e+06\n 8.88611052e+06 2.41549528e+07 6.56599691e+07 1.78482301e+08]\nlog [      -inf 0.         0.69314718 1.09861229 1.38629436 1.60943791\n 1.79175947 1.94591015 2.07944154 2.19722458 2.30258509 2.39789527\n 2.48490665 2.56494936 2.63905733 2.7080502  2.77258872 2.83321334\n 2.89037176 2.94443898]\n"
+    }
+   ],
+   "source": [
+    "# array operations\n",
+    "print(\"addition\",arr1 + arr)\n",
+    "print(\"subtaction\",arr1 - arr)\n",
+    "print(\"multiplication\",arr1 * arr)\n",
+    "print(\"division\",arr1 / arr)\n",
+    "print( \"exponential\",np.exp(arr))\n",
+    "print(\"log\",np.log(arr))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {},
+   "outputs": [
+    {
+     "output_type": "execute_result",
+     "data": {
+      "text/plain": "array([[1., 1., 1., 1., 1.],\n       [1., 1., 1., 1., 1.]])"
+     },
+     "metadata": {},
+     "execution_count": 21
+    }
+   ],
+   "source": [
+    "# Generate array of 1's\n",
+    "ones = np.ones((2,5))\n",
+    "ones"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 28,
+   "metadata": {},
+   "outputs": [
+    {
+     "output_type": "execute_result",
+     "data": {
+      "text/plain": "array([[0.42134465, 0.78933921, 0.60839405],\n       [0.52514149, 0.47304437, 0.98718499],\n       [0.64304971, 0.87054175, 0.24592149]])"
+     },
+     "metadata": {},
+     "execution_count": 28
+    }
+   ],
+   "source": [
+    "# Random distribution\n",
+    "np.random.rand(3,3)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 29,
+   "metadata": {},
+   "outputs": [
+    {
+     "output_type": "execute_result",
+     "data": {
+      "text/plain": "array([[ 0.70233267,  0.21289593,  0.60728472],\n       [-0.00629092, -0.23232045,  0.22922695],\n       [-1.51524076, -0.58858989, -1.21506291]])"
+     },
+     "metadata": {},
+     "execution_count": 29
+    }
+   ],
+   "source": [
+    "# Norma; distribution\n",
+    "np.random.randn(3,3)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ]
+}
